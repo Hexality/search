@@ -11,23 +11,13 @@
         } else {
             let value = el.match(/(youtube)|(yt)|(nyaa)|(github)/);
             if (value !== null) {
-                switch (value[0]) {
-                    case "youtube":
-                        window.location.href = `https://www.youtube.com/results?search_query=${el}`;
-                        break;
-                    case "yt":
-                        window.location.href = `https://www.youtube.com/results?search_query=${el}`;
-                        break;
-                    case "nyaa":
-                        window.location.href = `https://nyaa.si/?f=0&c=0_0&q=${el}`;
-                        break;
-                    case "github":
-                        window.location.href = `https://nyaa.si/?f=0&c=0_0&q=${el}`;
-                        break;
-                    case "gh":
-                        window.location.href = `https://nyaa.si/?f=0&c=0_0&q=${el}`;
-                        break;
-                }
+                window.location.href = {
+                    'youtube': `https://www.youtube.com/results?search_query=${el}`,
+                    'yt': `https://www.youtube.com/results?search_query=${el}`,
+                    'nyaa': `https://nyaa.si/?f=0&c=0_0&q=${el}`,
+                    'github': `https://github.com/search?q=${el}`,
+                    'gh': `https://github.com/search?q=${el}`
+                } [escape(value[0]).toLowerCase()] ?? null
             } else {
                 window.location.href = `https://google.com/search?q=${el}`;
             }
