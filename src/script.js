@@ -1,11 +1,13 @@
 (async () => {
     function submit(el) {
-        if (
+        if (el.match(/(^https:\/\/)|(^http:\/\/)/)) {
+            window.location.href = `${el}`;
+        } else if (
             el.match(
-                /(^https:\/\/)|(^http:\/\/)|(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)|(^[A-z]+\.[A-z]+\/(.+))|(^[A-z]+\.[A-z]+\/)|(^[A-z]+\.[A-z]+)/
+                /(^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+)|(^[A-z]+\.[A-z]+\/(.+))|(^[A-z]+\.[A-z]+\/)|(^[A-z]+\.[A-z]+)/
             )
         ) {
-            window.location.href = el;
+            window.location.href = `http://${el}`;
         } else {
             let value = el.match(/(youtube)|(yt)|(nyaa)|(github)/);
             if (value !== null) {
