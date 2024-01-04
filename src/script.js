@@ -1,4 +1,14 @@
 (async () => {
+    let params = new URL(document.location).searchParams;
+        let query = params.get("q");
+        let plat = params.get("p")
+        
+        console.log("Search query: ", query)
+        console.log(null == query)
+        
+        /* console.log("Requested platform", plat) */
+        /* console.log(null == plat) */
+
     function submit(el) {
         if (el.match(/(^https:\/\/)|(^http:\/\/)/)) {
             window.location.href = `${el}`;
@@ -25,6 +35,12 @@
     }
 
     const searchBox = document.querySelector(".search-box");
+
+    onload = () => {
+        if(null !== query) {
+            submit(query)
+        }
+    }
 
     searchBox.querySelector(".search-input").onkeypress = (_) => {
         if (_.key === "Enter") {
