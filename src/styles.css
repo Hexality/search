@@ -1,3 +1,8 @@
+@font-face {
+  font-family: FluentSystemIcons;
+  src: url('./fonts/FluentSystemIcons-Resizable.woff2');
+}
+
 html,
       body {
         width: 100%;
@@ -68,7 +73,8 @@ html,
       .search-ok {
         background: none;
         border: none;
-        font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets";
+        /* font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets"; */
+        font-family: FluentSystemIcons;
         position: relative;
         font-size: 18px;
         height: 32px;
@@ -77,6 +83,12 @@ html,
         margin-left: 0;
         padding: 0;
         border-radius: 25em;
+        &::before {
+          content: '';
+        }
+        &:active::before {
+          content: '';
+        }
       }
 
       .search-ok:hover {

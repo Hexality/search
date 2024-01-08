@@ -34,24 +34,25 @@
         }
     }
 
-    const searchBox = document.querySelector(".search-box");
-
     
-    if(null != query) {
-        console.log(query)
-        submit(query)
-    } else {
-        searchBox.querySelector(".search-input").onkeypress = (_) => {
-            if (_.key === "Enter") {
-                if (_.target.value) submit(_.target.value);
+    addEventListener("DOMContentLoaded", () => {
+        const searchBox = document.querySelector(".search-box");
+        if(null != query) {
+            console.log(query)
+            submit(query)
+        } else {
+            searchBox.querySelector(".search-input").onkeypress = (_) => {
+                if (_.key === "Enter") {
+                    if (_.target.value) submit(_.target.value);
+                }
+            };
+            searchBox.querySelector(".search-ok").onclick = (_) => {
+                let value = searchBox.querySelector(".search-input").value;
+                if (value) submit(value);
+            };
+            onload = () => {
+                document.querySelector('.search-input').focus()
             }
-        };
-        searchBox.querySelector(".search-ok").onclick = (_) => {
-            let value = searchBox.querySelector(".search-input").value;
-            if (value) submit(value);
-        };
-        onload = () => {
-            document.querySelector('.search-input').focus()
         }
-    }
+    })
 })();
