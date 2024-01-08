@@ -9,6 +9,7 @@ html,
         height: 100%;
         margin: 0;
         padding: 0;
+        transition: all .10s ease;
       }
 
       #content {
@@ -48,14 +49,15 @@ html,
       .search-input {
         position: relative;
         background: none;
-        font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif;
+        font-family: "Segoe UI Variable Text", Arial, sans-serif;
         font-size: 18px;
         border: none !important;
         box-sizing: unser;
         height: 42px;
         width: 100%;
-        top: -1px;
+        top: 1px;
         padding-left: 24px;
+        color: rgb(255 255 255 / 75%);
       }
 
       .search-input:focus-visible {
@@ -72,11 +74,13 @@ html,
 
       .search-ok {
         background: none;
+        display: grid;
+        place-items: center;
         border: none;
         /* font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets"; */
         font-family: FluentSystemIcons;
         position: relative;
-        font-size: 18px;
+        font-size: 24px;
         height: 32px;
         width: 56px;
         margin: 0 6px;
@@ -85,9 +89,11 @@ html,
         border-radius: 25em;
         &::before {
           content: '';
+          color: rgb(255 255 255 / 50%);
         }
         &:active::before {
           content: '';
+          color: rgb(255 255 255);
         }
       }
 
